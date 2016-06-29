@@ -4,16 +4,16 @@
 
 ## 安装
 
-1.安装emacs
+1. 安装emacs
 
  https://www.gnu.org/software/emacs/download.html 
 
-2.安装spacemacs
+2. 安装spacemacs
 ```
 cd /
 git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
 ```
-3.安装我的配置
+3. 安装我的配置
 ```
 cd /
 git clone https://github.com/fidding/.spacemacs.d.git ~/.spacemacs.d
@@ -21,11 +21,11 @@ git clone https://github.com/fidding/.spacemacs.d.git ~/.spacemacs.d
 ## 如何配置
 安装完成之后，打开你的.spacemacs文件。
 
-1.添加配置路径
+1. 添加配置路径
 ```
 dotspacemacs-configuration-layer-path '("~/.spacemacs.d/")
 ```
-2.引用配置
+2. 引用配置
 ```
 dotspacemacs-configuration-layers '(fidding）
 ```
@@ -33,23 +33,22 @@ dotspacemacs-configuration-layers '(fidding）
 
 **插件**
 
-1.monokai主题
+1. monokai主题
 
-2.自动补全
+2. 自动补全
 
-3.彩虹猫
+3. 彩虹猫
 
-4.web-mode
+4. web-mode
 
-5.php-mode
+5. php-mode
 
-6.markdown-mode
+6. markdown-mode
 
-7.livedown markdown实时预览
+7. livedown markdown实时预览
 
-* 需要先安装npm与node
-
-* 然后安装livedown，```npm install -g livedown```
+    1. 需要先安装npm与node 
+    2. 然后安装livedown，```npm install -g livedown```
 
 **快捷键**
 
@@ -67,14 +66,15 @@ M-x livedown:kill ;;关闭markdown实时预览
 
 **基本配置**
 
-1.自定义窗口标题
+1. 自定义窗口标题
 
-2.初始窗口最大化
+2. 初始窗口最大化
 
-3.显示行号
+3. 显示行号
 
 **欢迎star&fork!!**
 
+***
 # happy join in！
 
 
