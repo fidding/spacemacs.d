@@ -16,12 +16,12 @@ git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
 3.安装我的配置
 ```
 cd /
-git clone git@github.com:fidding/.spacemacs.d.git ~/.spacemacs.d/
+git clone https://github.com/fidding/.spacemacs.d.git ~/.spacemacs.d
 ```
 ## 如何配置
 安装完成之后，打开你的.spacemacs文件。
 
-1.添加配置路径  
+1.添加配置路径
 ```
 dotspacemacs-configuration-layer-path '("~/.spacemacs.d/")
 ```
@@ -46,6 +46,10 @@ dotspacemacs-configuration-layers '(fidding）
 6.markdown-mode
 
 7.livedown markdown实时预览
+
+* 需要先安装npm与node
+
+* 然后安装livedown，```npm install -g livedown```
 
 **快捷键**
 
