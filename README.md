@@ -18,7 +18,9 @@ git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
 cd /
 git clone https://github.com/fidding/.spacemacs.d.git ~/.spacemacs.d
 ```
+
 ## 如何配置
+
 安装完成之后，打开你的.spacemacs文件。
 
 1. 添加配置路径
@@ -29,8 +31,8 @@ dotspacemacs-configuration-layer-path '("~/.spacemacs.d/")
 ```
 dotspacemacs-configuration-layers '(fidding）
 ```
-## 都有什么
 
+## 都有什么
 **插件**
 
 1. monokai主题
@@ -72,9 +74,8 @@ M-x livedown:kill ;;关闭markdown实时预览
 
 3. 显示行号
 
-**欢迎star&fork!!**
-
 ***
+**将持续更新，欢迎star&fork!!**
 # happy join in！
 
 
