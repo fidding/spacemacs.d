@@ -16,6 +16,7 @@
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
+;;(setq auto-save-default nil)
 ;;初始窗口最大化
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
