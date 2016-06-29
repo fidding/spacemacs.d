@@ -73,7 +73,10 @@ Each entry is either:
         nyan-mode;;彩虹猫
         web-mode;;web模式
         php-mode;;php模式
-
+        markdown-mode;;markdown模式
+        (livedown :location (recipe
+                             :fetcher github
+                             :repo "shime/emacs-livedown"));;markdown在线预览，设置来源github
         )
       )
 
@@ -84,7 +87,7 @@ Each entry is either:
 ;; :bind 自定义绑定包快捷键，例如:bind ("C-." . jumpweb-mode))
 ;; :defer t 自动推迟加载，在空闲时间加载
 ;; :disabled t 禁用
-ca
+
 ;;monokai主题
 (defun fidding/init-monokai-theme ()
   (use-package monokai-theme
@@ -118,6 +121,30 @@ ca
 (defun fidding/init-php-mode ()
   (use-package php-mode
     ))
-
+;;markdown-mode
+(defun fidding/init-markdown-mode ()
+  (use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "multimarkdown")
+    )
+  )
+;;markdown实时预览
+;;在md文件下
+;;M-x livedown:preview开启
+;;M-x livedown:kill关闭
+(defun fidding/init-livedown ()
+  (use-package livedown
+    :config
+    (custom-set-variables
+     '(livedown:autostart nil) ; 启动md自动打开预览功能 automatically open preview when opening markdown files 
+     '(livedown:open t)        ; 启动预览自动打开窗口automatically open the browser window
+     '(livedown:port 1337))    ; 端口 port for livedown server
+    (require 'livedown)
+    )
+  )
 
 ;;; packages.el ends here
