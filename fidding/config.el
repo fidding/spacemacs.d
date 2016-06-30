@@ -23,3 +23,11 @@
 ;;开启行号
 (global-linum-mode t)
 (add-hook 'org-mode-hook (lambda () (linum-mode 0)));;关闭org-mode的行号
+
+;;设置org的任务状态
+(setq org-todo-keywords
+      '(
+        ;;note笔记 idea想法
+        ;;todo准备做 done完成 abort中止
+        (sequence "TODO(t!)" "|" "DONE(d!)" "ABORT(a@/!)" "NOTE(n!)" "IDEA(i!)")
+        ))
