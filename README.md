@@ -76,7 +76,7 @@ M-x livedown:kill ;;关闭markdown实时预览
 
 ***
 **将持续更新，欢迎star&fork!!**
-# happy join in！
+# happy joining！
 
 
 
