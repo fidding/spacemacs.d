@@ -77,6 +77,7 @@ Each entry is either:
         (livedown :location (recipe
                              :fetcher github
                              :repo "shime/emacs-livedown"));;markdown在线预览，设置来源github
+        ace-jump-mode;;快速跳转
         )
       )
 
@@ -146,5 +147,19 @@ Each entry is either:
     (require 'livedown)
     )
   )
+
+;;ace-jump-mode跳转
+(defun fidding/init-ace-jump-mode ()
+  (use-package ace-jump-mode
+    :init
+    (autoload
+      'ace-jump-mode
+      "ace-jump-mode"
+      "Emacs quick move minor mode"
+      t)
+    (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+    )
+  )
+  
 
 ;;; packages.el ends here

@@ -51,12 +51,17 @@ dotspacemacs-configuration-layers '(fidding）
 
     1. 需要先安装npm与node 
     2. 然后安装livedown，```npm install -g livedown```
+    
+8. ace-jump-mode 快速跳转
 
 **快捷键**
 
 ```
 C-c f ;; 增添窗口大小，步长10
 C-c b ;;减小窗口大小，步长10
+
+C-c SPC ;; ace-jump-word-mode 首字母跳转
+C-u C-u C-c SPC ;;ace-jump-line-mode 行跳转
 ```
 
 **指令**
