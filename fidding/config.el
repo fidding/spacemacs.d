@@ -16,9 +16,12 @@
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
-;;(setq auto-save-default nil)
+
 ;;初始窗口最大化
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;;保存时自动清除行尾空格及文件结尾空行
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;开启行号
 (global-linum-mode t)

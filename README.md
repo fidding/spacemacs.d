@@ -6,7 +6,7 @@
 
 1. 安装emacs
 
- https://www.gnu.org/software/emacs/download.html 
+ https://www.gnu.org/software/emacs/download.html
 
 2. 安装spacemacs
 ```
@@ -49,9 +49,9 @@ dotspacemacs-configuration-layers '(fidding）
 
 7. livedown markdown实时预览
 
-    1. 需要先安装npm与node 
+    1. 需要先安装npm与node
     2. 然后安装livedown，```npm install -g livedown```
-    
+
 8. ace-jump-mode 快速跳转
 
 **快捷键**
@@ -79,24 +79,8 @@ M-x livedown:kill ;;关闭markdown实时预览
 
 3. 显示行号
 
+4. 保存buffer时移除多余空格
+
 ***
 **将持续更新，欢迎star&fork!!**
 # happy joining！
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
