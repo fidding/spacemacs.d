@@ -117,6 +117,10 @@ Each entry is either:
 ;;web-mode
 (defun fidding/init-web-mode ()
   (use-package web-mode
+    :config
+    (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
     ))
 ;;php-mode
 (defun fidding/init-php-mode ()
@@ -141,7 +145,7 @@ Each entry is either:
   (use-package livedown
     :config
     (custom-set-variables
-     '(livedown:autostart nil) ; 启动md自动打开预览功能 automatically open preview when opening markdown files 
+     '(livedown:autostart nil) ; 启动md自动打开预览功能 automatically open preview when opening markdown files
      '(livedown:open t)        ; 启动预览自动打开窗口automatically open the browser window
      '(livedown:port 1337))    ; 端口 port for livedown server
     (require 'livedown)
@@ -160,6 +164,6 @@ Each entry is either:
     (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
     )
   )
-  
+
 
 ;;; packages.el ends here
