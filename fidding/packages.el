@@ -78,6 +78,7 @@ Each entry is either:
                              :fetcher github
                              :repo "shime/emacs-livedown"));;markdown在线预览，设置来源github
         ace-jump-mode;;快速跳转
+        idle-highlight-mode;;选中词匹配高亮
         )
       )
 
@@ -165,5 +166,21 @@ Each entry is either:
     )
   )
 
+;;高亮匹配选中词
+(defun fidding/init-idle-highlight-mode ()
+  (use-package idle-highlight-mode
+    :config
+    (defun my-coding-hook ()
+      (make-local-variable 'column-number-mode)
+      (column-number-mode t)
+      (if window-system (hl-line-mode t))
+      (idle-highlight-mode t))
+    ;;自选模式开启
+    (add-hook 'emacs-lisp-mode-hook 'my-coding-hook)
+    (add-hook 'js2-mode-hook 'my-coding-hook)
+    (add-hook 'javascript-mode-hook 'my-coding-hook)
+    (add-hook 'js-mode-hook 'my-coding-hook)
+    (add-hook 'php-mode-hook 'my-coding-hook)
+    ))
 
 ;;; packages.el ends here

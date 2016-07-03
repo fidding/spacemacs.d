@@ -37,7 +37,7 @@ dotspacemacs-configuration-layers '(fidding）
 
 1. monokai主题
 
-2. 自动补全
+2. cpmpany自动补全
 
 3. 彩虹猫
 
@@ -53,6 +53,8 @@ dotspacemacs-configuration-layers '(fidding）
     2. 然后安装livedown，```npm install -g livedown```
 
 8. ace-jump-mode 快速跳转
+
+9. idle-highlight-mode选中词匹配高亮
 
 **快捷键**
 
