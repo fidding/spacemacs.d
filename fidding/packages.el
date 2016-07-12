@@ -77,8 +77,17 @@ Each entry is either:
         (livedown :location (recipe
                              :fetcher github
                              :repo "shime/emacs-livedown"));;markdown在线预览，设置来源github
-        ace-jump-mode;;快速跳转
-        idle-highlight-mode;;选中词匹配高亮
+        (magit :location (recipe
+                          :fetcher github
+                          :repo "magit/magit"
+                          :files ("lisp/magit*.el"
+                                  "lisp/git-rebase.el"
+                                  "Documentation/magit.texi"
+                                  "Documentation/AUTHORS.md"
+                                  "COPYING"
+                                  (:exclude "lisp/magit-popup.el"))));;magit
+               ace-jump-mode;;快速跳转
+               idle-highlight-mode;;选中词匹配高亮
         )
       )
 
@@ -182,5 +191,8 @@ Each entry is either:
     (add-hook 'js-mode-hook 'my-coding-hook)
     (add-hook 'php-mode-hook 'my-coding-hook)
     ))
-
+;;magit
+(defun fidding/init-magit ()
+  (use-package magit
+    ))
 ;;; packages.el ends here
