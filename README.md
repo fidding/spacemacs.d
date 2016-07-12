@@ -57,6 +57,7 @@ dotspacemacs-configuration-layers '(fidding）
 9. idle-highlight-mode选中词匹配高亮
 
 10. magit git版本控制
+
 **快捷键**
 
 ```
