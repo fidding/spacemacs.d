@@ -64,7 +64,7 @@ Each entry is either:
 ;;
 ;;fidding private config start
 ;;
-
+;;fidding-packages
 ;;添加包依赖
 (setq fidding-packages
       '(
