@@ -34,3 +34,5 @@
         ;;todo准备做 done完成 abort中止
         (sequence "TODO(t!)" "|" "DONE(d!)" "ABORT(a@/!)" "NOTE(n!)" "IDEA(i!)")
         ))
+;;底部分割线锯齿平滑
+(setq ns-use-srgb-colorspace nil)
