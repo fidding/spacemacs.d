@@ -9,6 +9,12 @@
 ;;
 ;;; License: GPLv3
 
+;;隐藏工具栏
+(tool-bar-mode -1)
+;;隐藏菜单栏
+(menu-bar-mode -1)
+;;隐藏滚动条
+(scroll-bar-mode -1)
 ;;自定义buffer头
 ;;显示更多的buffer标题信息
 (setq frame-title-format
