@@ -73,6 +73,7 @@ Each entry is either:
         nyan-mode;;彩虹猫
         web-mode;;web模式
         php-mode;;php模式
+        jade-mode;;jade模式
         markdown-mode;;markdown模式
         (livedown :location (recipe
                              :fetcher github
@@ -136,6 +137,11 @@ Each entry is either:
 (defun fidding/init-php-mode ()
   (use-package php-mode
     ))
+;;jade-mode
+(defun fidding/init-jade-mode ()
+  (use-package jade-mode
+    ))
+
 ;;markdown-mode
 (defun fidding/init-markdown-mode ()
   (use-package markdown-mode
