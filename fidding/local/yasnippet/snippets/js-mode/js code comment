@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# contributor: fidding <395455856@qq.com>
+# name: js code comment
+# key: jsdoc
+# --
+/**
+ * [${1:}]
+ */
+$0

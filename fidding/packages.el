@@ -81,6 +81,7 @@ Each entry is either:
         magit;;git版本控制
         ace-jump-mode;;快速跳转
         idle-highlight-mode;;选中词匹配高亮
+        yasnippet;;自定义模版
         )
       )
 
@@ -192,5 +193,15 @@ Each entry is either:
 ;;magit
 (defun fidding/init-magit ()
   (use-package magit
+    ))
+;;yasnippet
+(defun fidding/init-yasnippet ()
+  (use-package yasnippet
+    :init
+    :config
+    (setq yas-snippet-dirs
+          '("~/.spacemacs.d/fidding/local/yasnippet/snippets";;personal snippets
+            ))
+    (yas-global-mode 1)
     ))
 ;;; packages.el ends here

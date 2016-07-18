@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: fidding <395455856@qq.com>
+# name: callback for nodejs mongoose
+# key: callback
+# --
+function (err, ${2: result}){
+         $0
+}

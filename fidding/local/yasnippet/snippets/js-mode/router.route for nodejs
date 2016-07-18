@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# contributor: fidding <395455856@qq.com>
+# name: router.route for nodejs
+# key: route
+# --
+/**
+ * [${1:}]
+ */
+router.route('/${2:}')
+  .get(function (req, res) {
+                $0
+  })

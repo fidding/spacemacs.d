@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: snippet
+# key: snippet
+# --
+# -*- mode: snippet -*-
+# contributor: fidding <395455856@qq.com>
+# name: ${1:}
+# key: ${2:}
+# --
+$0
