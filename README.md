@@ -61,6 +61,7 @@ dotspacemacs-configuration-layers '(fidding）
 11. jade-mode模式
 
 12. yasnippet自定义模版
+
 **快捷键**
 
 ```
