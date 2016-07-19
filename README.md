@@ -59,6 +59,8 @@ dotspacemacs-configuration-layers '(fidding）
 10. magit git版本控制
 
 11. jade-mode模式
+
+12. yasnippet自定义模版
 **快捷键**
 
 ```
