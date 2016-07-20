@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: fidding <395455856@qq.com>
+# name: success MMD
+# key: success
+# --
+return res.json(MMD.success('${1:}'));

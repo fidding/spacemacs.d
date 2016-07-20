@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: fidding <395455856@qq.com>
+# name: error MMD
+# key: error
+# --
+return res.json(MMD.error(${1:400}, '${2:}'));
