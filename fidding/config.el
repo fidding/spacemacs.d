@@ -28,8 +28,11 @@
 
 ;;保存时自动清除行尾空格及文件结尾空行
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;;tab&空格
-(setq-default indent-tabs-mode  nil)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 ;;开启行号
 (global-linum-mode t)
 (add-hook 'org-mode-hook (lambda () (linum-mode 0)));;关闭org-mode的行号
