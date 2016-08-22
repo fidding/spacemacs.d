@@ -75,6 +75,7 @@ Each entry is either:
         php-mode;;php模式
         jade-mode;;jade模式
         markdown-mode;;markdown模式
+        (react :location local)
         (livedown :location (recipe
                              :fetcher github
                              :repo "shime/emacs-livedown"));;markdown在线预览，设置来源github
@@ -125,11 +126,15 @@ Each entry is either:
     (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+    (setq web-mode-content-types-alist
+          '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
     ))
 ;;php-mode
 (defun fidding/init-php-mode ()
   (use-package php-mode
     ))
+
 ;;jade-mode
 (defun fidding/init-jade-mode ()
   (use-package jade-mode
