@@ -58,9 +58,6 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-
-
-
 ;;
 ;;fidding private config start
 ;;
@@ -68,7 +65,8 @@ Each entry is either:
 ;;添加包依赖
 (setq fidding-packages
       '(
-        monokai-theme;;monokai主题
+        dracula-theme;;dracula-theme
+        ;;monokai-theme;;monokai主题
         company;;自动补全
         nyan-mode;;彩虹猫
         web-mode;;web模式
@@ -86,7 +84,7 @@ Each entry is either:
         )
       )
 
-;;配置包
+;; 配置包
 ;; use-package 装载包
 ;; :init 在包装载之前执行的代码
 ;; :config 在包装载之后执行的代码
@@ -95,11 +93,19 @@ Each entry is either:
 ;; :disabled t 禁用
 
 ;;monokai主题
-(defun fidding/init-monokai-theme ()
-  (use-package monokai-theme
+;; (defun fidding/init-monokai-theme ()
+;;   (use-package monokai-theme
+;;     :init
+;;     :config
+;;     (load-theme 'monokai t)
+;;     ))
+
+;; dracula-theme主题
+(defun fidding/init-dracula-theme ()
+  (use-package dracula-theme
     :init
     :config
-    (load-theme 'monokai t)
+    (load-theme 'dracula t)
     ))
 
 ;;代码补全
@@ -109,6 +115,7 @@ Each entry is either:
     :config
     (add-hook 'after-init-hook 'global-company-mode);;激活自动补全
     ))
+
 ;;彩虹猫
 (defun fidding/init-nyan-mode ()
   (use-package nyan-mode
@@ -130,6 +137,7 @@ Each entry is either:
     (setq web-mode-content-types-alist
           '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
     ))
+
 ;;php-mode
 (defun fidding/init-php-mode ()
   (use-package php-mode
@@ -151,6 +159,7 @@ Each entry is either:
     :init (setq markdown-command "multimarkdown")
     )
   )
+
 ;;markdown实时预览
 ;;在md文件下
 ;;M-x livedown:preview开启
@@ -195,10 +204,12 @@ Each entry is either:
     (add-hook 'js-mode-hook 'my-coding-hook)
     (add-hook 'php-mode-hook 'my-coding-hook)
     ))
+
 ;;magit
 (defun fidding/init-magit ()
   (use-package magit
     ))
+
 ;;yasnippet
 (defun fidding/init-yasnippet ()
   (use-package yasnippet
@@ -209,4 +220,5 @@ Each entry is either:
             ))
     (yas-global-mode 1)
     ))
+
 ;;; packages.el ends here
