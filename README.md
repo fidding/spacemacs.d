@@ -35,7 +35,7 @@ dotspacemacs-configuration-layers '(fidding）
 ## 都有什么
 **插件**
 
-1. monokai主题
+1. dracula-themt主题
 
 2. cpmpany自动补全
 
