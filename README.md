@@ -16,7 +16,7 @@ git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
 3. 安装我的配置
 ```
 cd /
-git clone https://github.com/fidding/.spacemacs.d.git ~/.spacemacs.d
+git clone https://github.com/fidding/.spacemacs.d.git ~/spacemacs.d
 ```
 
 ## 如何配置
@@ -25,7 +25,7 @@ git clone https://github.com/fidding/.spacemacs.d.git ~/.spacemacs.d
 
 1. 添加配置路径
 ```
-dotspacemacs-configuration-layer-path '("~/.spacemacs.d/")
+dotspacemacs-configuration-layer-path '("~/spacemacs.d/")
 ```
 2. 引用配置
 ```
