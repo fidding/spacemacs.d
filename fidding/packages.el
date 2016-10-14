@@ -133,6 +133,7 @@ Each entry is either:
     (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
     (setq web-mode-content-types-alist
           '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
