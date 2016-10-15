@@ -137,6 +137,9 @@ Each entry is either:
     (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
     (setq web-mode-content-types-alist
           '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
+    (setq web-mode-markup-indent-offset 2)
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 2)
     ))
 
 ;;php-mode

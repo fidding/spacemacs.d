@@ -30,8 +30,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;tab&空格
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq indent-tabs-mode nil)
+(setq default-tab-width 2)
+(setq tab-width 2)
 
 ;;开启行号
 (global-linum-mode t)
