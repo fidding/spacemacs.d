@@ -1,6 +1,6 @@
 ;;; packages.el --- fidding layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2012-2016 fidding
+;; Copyright (c) 2012-2017 fidding
 ;;
 ;; Author: 洪加煌洪 <fidding@395455856@qq.com>
 ;; URL: https://github.com/fidding/.spacemacs.d
@@ -71,16 +71,8 @@ Each entry is either:
         nyan-mode;;彩虹猫
         web-mode;;web模式
         php-mode;;php模式
-        jade-mode;;jade模式
-        markdown-mode;;markdown模式
-        (react :location local)
-        (livedown :location (recipe
-                             :fetcher github
-                             :repo "shime/emacs-livedown"));;markdown在线预览，设置来源github
         magit;;git版本控制
-        ace-jump-mode;;快速跳转
         idle-highlight-mode;;选中词匹配高亮
-        yasnippet;;自定义模版
         )
       )
 
@@ -122,8 +114,10 @@ Each entry is either:
     :init
     :config
     (nyan-mode t);;启动彩虹猫
-    (nyan-toggle-wavy-trail);;开启彩虹波浪
-    (nyan-start-animation);;开启猫动画
+    (setq nyan-bar-length 24)
+    (setq nyan-minimum-window-width 10)
+    ;;(nyan-toggle-wavy-trail);;开启彩虹波浪
+    ;;(nyan-start-animation);;开启猫动画
     ))
 
 ;;web-mode
@@ -137,60 +131,15 @@ Each entry is either:
     (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
     (setq web-mode-content-types-alist
           '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
+    (setq web-mode-markup-indent-offset 4)
+    (setq web-mode-css-indent-offset 4)
+    (setq web-mode-code-indent-offset 4)
     ))
 
 ;;php-mode
 (defun fidding/init-php-mode ()
   (use-package php-mode
     ))
-
-;;jade-mode
-(defun fidding/init-jade-mode ()
-  (use-package jade-mode
-    ))
-
-;;markdown-mode
-(defun fidding/init-markdown-mode ()
-  (use-package markdown-mode
-    :ensure t
-    :commands (markdown-mode gfm-mode)
-    :mode (("README\\.md\\'" . gfm-mode)
-           ("\\.md\\'" . markdown-mode)
-           ("\\.markdown\\'" . markdown-mode))
-    :init (setq markdown-command "multimarkdown")
-    )
-  )
-
-;;markdown实时预览
-;;在md文件下
-;;M-x livedown:preview开启
-;;M-x livedown:kill关闭
-(defun fidding/init-livedown ()
-  (use-package livedown
-    :config
-    (custom-set-variables
-     '(livedown:autostart nil) ; 启动md自动打开预览功能 automatically open preview when opening markdown files
-     '(livedown:open t)        ; 启动预览自动打开窗口automatically open the browser window
-     '(livedown:port 1337))    ; 端口 port for livedown server
-    (require 'livedown)
-    )
-  )
-
-;;ace-jump-mode跳转
-(defun fidding/init-ace-jump-mode ()
-  (use-package ace-jump-mode
-    :init
-    (autoload
-      'ace-jump-mode
-      "ace-jump-mode"
-      "Emacs quick move minor mode"
-      t)
-    (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-    )
-  )
 
 ;;高亮匹配选中词
 (defun fidding/init-idle-highlight-mode ()
@@ -212,17 +161,6 @@ Each entry is either:
 ;;magit
 (defun fidding/init-magit ()
   (use-package magit
-    ))
-
-;;yasnippet
-(defun fidding/init-yasnippet ()
-  (use-package yasnippet
-    :init
-    :config
-    (setq yas-snippet-dirs
-          '("~/.spacemacs.d/fidding/local/yasnippet/snippets";;personal snippets
-            ))
-    (yas-global-mode 1)
     ))
 
 ;;; packages.el ends here

@@ -9,8 +9,3 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
-
-;;键位绑定
-(global-set-key (kbd "C-c f") (kbd "C-u - 1 0 C-x {"));;增加buffer宽度，步长10
-(global-set-key (kbd "C-c b") (kbd "C-u - 1 0 C-x }"));;减小buffer宽度，步长10
-
