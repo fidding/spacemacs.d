@@ -141,7 +141,7 @@ Each entry is either:
     ))
 
 ;;php-mode
-(defun php/init-php-mode ()
+(defun fidding/init-php-mode ()
   (use-package php-mode
     :defer t
     :mode ("\\.php\\'" . php-mode)))
