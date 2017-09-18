@@ -1,6 +1,6 @@
 
 # fidding emacs配置
-个人的spacemacs layer配置
+个人的spacemacs layer配置 , 开发堆栈(php+html+css+js)
 
 ## 安装
 
@@ -39,45 +39,18 @@ dotspacemacs-configuration-layers '(fidding）
 
 2. cpmpany自动补全
 
-3. 彩虹猫
+3. nyan-cat彩虹猫
 
 4. web-mode
 
 5. php-mode
 
-6. markdown-mode
+6. php-extras php函数提示 , 需要执行(M-x php-extras-generate-eldoc)
 
-7. livedown markdown实时预览
+7. idle-highlight-mode选中词匹配高亮
 
-    1. 需要先安装npm与node
-    2. 然后安装livedown，```npm install -g livedown```
+8. magit git版本控制
 
-8. ace-jump-mode 快速跳转
-
-9. idle-highlight-mode选中词匹配高亮
-
-10. magit git版本控制
-
-11. jade-mode模式
-
-12. yasnippet自定义模版
-
-**快捷键**
-
-```
-C-c f ;; 增添窗口大小，步长10
-C-c b ;;减小窗口大小，步长10
-
-C-c SPC ;; ace-jump-word-mode 首字母跳转
-C-u C-u C-c SPC ;;ace-jump-line-mode 行跳转
-```
-
-**指令**
-
-```
-M-x livedown:preview ;;开启markdown实时预览
-M-x livedown:kill ;;关闭markdown实时预览
-```
 
 **基本配置**
 
@@ -88,6 +61,8 @@ M-x livedown:kill ;;关闭markdown实时预览
 3. 显示行号
 
 4. 保存buffer时移除多余空格
+
+5. php环境开发
 
 ***
 **将持续更新，欢迎star&fork!!**

@@ -70,7 +70,11 @@ Each entry is either:
         company;;自动补全
         nyan-mode;;彩虹猫
         web-mode;;web模式
-        php-mode;;php模式
+
+        ;;php开发
+        (php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
+        php-mode
+
         magit;;git版本控制
         idle-highlight-mode;;选中词匹配高亮
         )
@@ -137,9 +141,15 @@ Each entry is either:
     ))
 
 ;;php-mode
-(defun fidding/init-php-mode ()
+(defun php/init-php-mode ()
   (use-package php-mode
-    ))
+    :defer t
+    :mode ("\\.php\\'" . php-mode)))
+
+;;php-extras
+(defun fidding/init-php-extras ()
+  (use-package php-extras
+    :defer t))
 
 ;;高亮匹配选中词
 (defun fidding/init-idle-highlight-mode ()
