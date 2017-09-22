@@ -81,11 +81,6 @@
                " "
                ;; evil state
                '(:eval evil-mode-line-tag)
-               " "
-               '(:eval (if (vc-backend buffer-file-name)
-                           (list
-                            (propertize octicon-octoface 'face 'octicons-modeline)
-                            (propertize " "              'face 'mode-line))))
                ;; code type
                mode-line-mule-info
                ;; file type
