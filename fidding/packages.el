@@ -65,18 +65,31 @@ Each entry is either:
 ;;添加包依赖
 (setq fidding-packages
       '(
-        dracula-theme;;dracula-theme
-        ;;monokai-theme;;monokai主题
-        company;;自动补全
-        nyan-mode;;彩虹猫
-        web-mode;;web模式
-
+        ;;dracula-theme
+        dracula-theme
+        ;;monokai主题
+        ;;monokai-theme
+        ;;自动补全
+        company
+        ;;彩虹猫
+        nyan-mode
+        ;;web模式
+        web-mode
         ;;php开发
         (php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
         php-mode
+        ;;选中词匹配高亮
+        idle-highlight-mode
+        ;;markdown模式
+        (markdown-mode :fetcher github :repo "jrblevin/markdown-mode")
+        (markdown-mode :location (recipe
+                                  :fetcher github
 
-        magit;;git版本控制
-        idle-highlight-mode;;选中词匹配高亮
+                                  ))
+        ;;markdown在线预览，设置来源github
+        (livedown :location (recipe
+                             :fetcher github
+                             :repo "shime/emacs-livedown"))
         )
       )
 
@@ -140,17 +153,6 @@ Each entry is either:
     (setq web-mode-code-indent-offset 4)
     ))
 
-;;php-mode
-(defun fidding/init-php-mode ()
-  (use-package php-mode
-    :defer t
-    :mode ("\\.php\\'" . php-mode)))
-
-;;php-extras
-(defun fidding/init-php-extras ()
-  (use-package php-extras
-    :defer t))
-
 ;;高亮匹配选中词
 (defun fidding/init-idle-highlight-mode ()
   (use-package idle-highlight-mode
@@ -168,9 +170,42 @@ Each entry is either:
     (add-hook 'php-mode-hook 'my-coding-hook)
     ))
 
-;;magit
-(defun fidding/init-magit ()
-  (use-package magit
-    ))
+;;php-mode
+(defun fidding/init-php-mode ()
+  (use-package php-mode
+    :defer t
+    :mode ("\\.php\\'" . php-mode)))
+
+;;php-extras
+(defun fidding/init-php-extras ()
+  (use-package php-extras
+    :defer t))
+
+;;markdown-mode
+(defun fidding/init-markdown-mode ()
+  (use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "multimarkdown")
+    )
+  )
+
+;;markdown实时预览
+;;在md文件下
+;;M-x livedown:preview开启
+;;M-x livedown:kill关闭
+(defun fidding/init-livedown ()
+  (use-package livedown
+    :config
+    (custom-set-variables
+     '(livedown:autostart nil) ; 启动md自动打开预览功能 automatically open preview when opening markdown files
+     '(livedown:open t)        ; 启动预览自动打开窗口automatically open the browser window
+     '(livedown:port 1337))    ; 端口 port for livedown server
+    (require 'livedown)
+    )
+  )
 
 ;;; packages.el ends here
