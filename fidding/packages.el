@@ -79,10 +79,11 @@ Each entry is either:
         ;;web模式
         web-mode
         ;;php开发
-        (php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
+        ;;(php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
         php-mode
         flymake-php
         phpcbf
+        ac-php
         ;;选中词匹配高亮
         idle-highlight-mode
         ;;markdown模式
@@ -138,7 +139,20 @@ Each entry is either:
     :init
     :config
     (add-hook 'after-init-hook 'global-company-mode);;激活自动补全
+    ;;配合ac-php
+    (add-hook 'php-mode-hook
+            '(lambda ()
+               (auto-complete-mode t)
+               (require 'ac-php)
+               (setq ac-sources  '(ac-source-php ) )
+               (yas-global-mode 1)
+
+               (ac-php-core-eldoc-setup ) ;; enable eldoc
+               (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
+               (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back)    ;go back
+               ))
     ))
+    
 ;;web-mode
 (defun fidding/init-web-mode ()
   (use-package web-mode
@@ -179,18 +193,18 @@ Each entry is either:
     :mode ("\\.php\\'" . php-mode)))
 
 ;;php-extras
-(defun fidding/init-php-extras ()
-  (use-package php-extras
-    :defer t))
+;;(defun fidding/init-php-extras ()
+;;  (use-package php-extras
+;;    :defer t))
 
-;;flymake-php
+;;flymake-php错误提示
 (defun fidding/init-flymake-php ()
   (use-package flymake-php
     :defer t
     :config
     (add-hook 'php-mode-hook 'flymake-php-load)))
  
-;;phpcbf
+;;phpcbf规范检测
 (defun fidding/init-phpcbf ()
   (use-package phpcbf
     :init
@@ -200,6 +214,14 @@ Each entry is either:
     '(phpcbf-standard "PSR2"))
     (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
     ))  
+
+;;ac-php语法提示
+(defun fidding/init-ac-php ()
+  (use-package ac-php
+    :init
+    :config
+    ))  
+
 
 
 ;;markdown-mode
