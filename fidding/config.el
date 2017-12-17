@@ -35,7 +35,7 @@
 (setq tab-width 4)
 
 ;;开启行号
-(global-linum-mode nil)
+(global-linum-mode t)
 (setq linum-format "%d ")
 (add-hook 'org-mode-hook (lambda () (linum-mode 0)));;关闭org-mode的行号
 
@@ -58,6 +58,9 @@
 ;;(setq garbage-collection-messages t)
 ;;)
 
+;; 自启动flymake
+(add-hook 'find-file-hooks 'flymake-find-file-hook)
+
 ;;
 ;;更改spacemacs内置设置
 ;;
@@ -65,61 +68,28 @@
 ;;关闭layer安装提示
 (setq dotspacemacs-enable-lazy-installation 'nil)
 
-;;开启行号
-(setq dotspacemacs-line-numbers nil)
-
-;;设置底部状态栏样式
-(setq-default mode-line-format
-              (list
-               " "
-               ;; window number
-               '(:eval (propertize
-                        (window-number-mode-line)
-                        'face
-                        'font-lock-type-face))
-
-               " "
-               ;; evil state
-               '(:eval evil-mode-line-tag)
-               ;; code type
-               mode-line-mule-info
-               ;; file type
-               'mode-line-modified
-               " "
-               ;; line and column
-               "(" ;; '%02' to set to 2 chars at least; prevents flickering
-               (propertize "%l" 'face 'font-lock-type-face) ","
-               (propertize "%c" 'face 'font-lock-type-face)
-               ") "
-               " "
-               ;; size
-               (propertize "%I" 'face 'font-lock-constant-face)
-               " %1"
-
-               " [%1"
-
-               ;; the buffer name; the file name as a tool tip
-               '(:eval (propertize "%b" 'face 'font-lock-keyword-face
-                                   'help-echo (buffer-file-name)))
-               "] "
-
-               ;; the current major mode for the buffer.
-               '(:eval (propertize "%m" 'face 'font-lock-string-face
-                                   'help-echo buffer-file-coding-system))
-               " "
-               ;; nyan
-               '(:eval (list (nyan-create)))
-
-               " "
-               ;; git info
-               `(vc-mode vc-mode)
-
-               (mode-line-fill 'mode-line 20)
-
-               mode-line-end-spaces
-               ;; add the time, with the date and the emacs uptime in the tooltip
-               ;; '(:eval (propertize (format-time-string "%H:%M")
-               ;;                     'help-echo
-               ;;                     (concat (format-time-string "%c; ")
-               ;;                             (emacs-uptime "Uptime:%hh"))))
-               ))
+              ;;;; the buffer name; the file name as a tool tip
+               ;;'(:eval (propertize "%b" 'face 'font-lock-keyword-face
+                                   ;;'help-echo (buffer-file-name)))
+               ;;"] "
+;;
+               ;;;; the current major mode for the buffer.
+               ;;'(:eval (propertize "%m" 'face 'font-lock-string-face
+                                   ;;'help-echo buffer-file-coding-system))
+               ;;" "
+               ;;;; nyan
+               ;;'(:eval (list (nyan-create)))
+;;
+               ;;" "
+               ;;;; git info
+               ;;`(vc-mode vc-mode)
+;;
+               ;;(mode-line-fill 'mode-line 20)
+;;
+               ;;mode-line-end-spaces
+               ;;;; add the time, with the date and the emacs uptime in the tooltip
+               ;;;; '(:eval (propertize (format-time-string "%H:%M")
+               ;;;;                     'help-echo
+               ;;;;                     (concat (format-time-string "%c; ")
+               ;;;;                             (emacs-uptime "Uptime:%hh"))))
+               ;;))

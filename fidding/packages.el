@@ -72,12 +72,16 @@ Each entry is either:
         ;;自动补全
         company
         ;;彩虹猫
-        nyan-mode
+        (nyan-mode
+         :fetcher github
+         :repo "TeMPOraL/nyan-mode"
+         :files ("nyan-mode.el" "img" "mus"))
         ;;web模式
         web-mode
         ;;php开发
         (php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
         php-mode
+        flymake-php
         ;;选中词匹配高亮
         idle-highlight-mode
         ;;markdown模式
@@ -117,6 +121,16 @@ Each entry is either:
     (load-theme 'dracula t)
     ))
 
+;;彩虹猫
+(defun fidding/init-nyan-mode ()
+  (use-package nyan-mode
+    :init
+    :config
+    (nyan-mode t);;启动彩虹猫
+    (nyan-toggle-wavy-trail);;开启彩虹波浪
+    (nyan-start-animation);;开启猫动画
+    ))
+
 ;;代码补全
 (defun fidding/init-company ()
   (use-package company
@@ -124,19 +138,6 @@ Each entry is either:
     :config
     (add-hook 'after-init-hook 'global-company-mode);;激活自动补全
     ))
-
-;;彩虹猫
-(defun fidding/init-nyan-mode ()
-  (use-package nyan-mode
-    :init
-    :config
-    (nyan-mode t);;启动彩虹猫
-    (setq nyan-bar-length 24)
-    (setq nyan-minimum-window-width 10)
-    ;;(nyan-toggle-wavy-trail);;开启彩虹波浪
-    ;;(nyan-start-animation);;开启猫动画
-    ))
-
 ;;web-mode
 (defun fidding/init-web-mode ()
   (use-package web-mode
@@ -180,6 +181,14 @@ Each entry is either:
 (defun fidding/init-php-extras ()
   (use-package php-extras
     :defer t))
+
+;;flymake-php
+(defun fidding/init-flymake-php ()
+  (use-package flymake-php
+    :defer t
+    :config
+    (add-hook 'php-mode-hook 'flymake-php-load)))
+   
 
 ;;markdown-mode
 (defun fidding/init-markdown-mode ()
