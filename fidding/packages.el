@@ -82,6 +82,7 @@ Each entry is either:
         (php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
         php-mode
         flymake-php
+        phpcbf
         ;;选中词匹配高亮
         idle-highlight-mode
         ;;markdown模式
@@ -188,7 +189,18 @@ Each entry is either:
     :defer t
     :config
     (add-hook 'php-mode-hook 'flymake-php-load)))
-   
+ 
+;;phpcbf
+(defun fidding/init-phpcbf ()
+  (use-package phpcbf
+    :init
+    :config
+    (custom-set-variables
+    '(phpcbf-executable "/usr/local/bin/phpcbf")
+    '(phpcbf-standard "PSR2"))
+    (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
+    ))  
+
 
 ;;markdown-mode
 (defun fidding/init-markdown-mode ()
