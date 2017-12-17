@@ -51,6 +51,12 @@ dotspacemacs-configuration-layers '(fidding）
 
 8. magit git版本控制
 
+9. flymake-php php错误提示
+
+10. phpcbf php格式规范
+
+11. ac-php php语法定义
+
 
 **基本配置**
 
@@ -62,7 +68,7 @@ dotspacemacs-configuration-layers '(fidding）
 
 4. 保存buffer时移除多余空格
 
-5. php环境开发
+5. web, php环境开发
 
 ***
 **将持续更新，欢迎star&fork!!**

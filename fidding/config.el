@@ -11,10 +11,13 @@
 
 ;;隐藏工具栏
 (tool-bar-mode -1)
+
 ;;隐藏菜单栏
 (menu-bar-mode -1)
+
 ;;隐藏滚动条
 (scroll-bar-mode -1)
+
 ;;自定义buffer头
 ;;显示更多的buffer标题信息
 (setq frame-title-format
@@ -46,19 +49,11 @@
         ;;todo准备做 done完成 abort中止
         (sequence "TODO(t!)" "|" "DONE(d!)" "ABORT(a@/!)" "NOTE(n!)" "IDEA(i!)")
         ))
+
 ;;底部分割线锯齿平滑
 (setq ns-use-srgb-colorspace nil)
 
-;;设置垃圾回收，在Windows下，emacs25版本会频繁出发垃圾回收，所以需要设置
-;;(when (eq system-type 'windows-nt)
-;;(setq gc-cons-threshold (* 512 1024 1024))
-;;(setq gc-cons-percentage 0.5)
-;;(run-with-idle-timer 5 t #'garbage-collect)
-;;显示垃圾回收信息，这个可以作为调试用
-;;(setq garbage-collection-messages t)
-;;)
-
-;; 自启动flymake
+;; 自启动flymake语法检测
 (add-hook 'find-file-hooks 'flymake-find-file-hook)
 
 ;;
@@ -67,29 +62,3 @@
 
 ;;关闭layer安装提示
 (setq dotspacemacs-enable-lazy-installation 'nil)
-
-              ;;;; the buffer name; the file name as a tool tip
-               ;;'(:eval (propertize "%b" 'face 'font-lock-keyword-face
-                                   ;;'help-echo (buffer-file-name)))
-               ;;"] "
-;;
-               ;;;; the current major mode for the buffer.
-               ;;'(:eval (propertize "%m" 'face 'font-lock-string-face
-                                   ;;'help-echo buffer-file-coding-system))
-               ;;" "
-               ;;;; nyan
-               ;;'(:eval (list (nyan-create)))
-;;
-               ;;" "
-               ;;;; git info
-               ;;`(vc-mode vc-mode)
-;;
-               ;;(mode-line-fill 'mode-line 20)
-;;
-               ;;mode-line-end-spaces
-               ;;;; add the time, with the date and the emacs uptime in the tooltip
-               ;;;; '(:eval (propertize (format-time-string "%H:%M")
-               ;;;;                     'help-echo
-               ;;;;                     (concat (format-time-string "%c; ")
-               ;;;;                             (emacs-uptime "Uptime:%hh"))))
-               ;;))
