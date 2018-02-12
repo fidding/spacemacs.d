@@ -1,6 +1,6 @@
 
 # fidding emacs配置
-个人的spacemacs layer配置 , 开发堆栈(php+html+css+js)
+个人的spacemacs layer配置 , 开发堆栈(php/python+html+css+js)
 
 ## 安装
 
@@ -35,7 +35,7 @@ dotspacemacs-configuration-layers '(fidding）
 ## 都有什么
 **插件**
 
-1. dracula-theme主题
+1. monokai-theme主题
 
 2. cpmpany自动补全
 
@@ -57,6 +57,10 @@ dotspacemacs-configuration-layers '(fidding）
 
 11. ac-php php语法定义
 
+12. vue
+
+13. python
+
 
 **基本配置**
 
@@ -68,7 +72,7 @@ dotspacemacs-configuration-layers '(fidding）
 
 4. 保存buffer时移除多余空格
 
-5. web, php环境开发
+5. web, php, python环境开发
 
 ***
 **将持续更新，欢迎star&fork!!**

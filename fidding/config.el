@@ -54,7 +54,7 @@
 (setq ns-use-srgb-colorspace nil)
 
 ;; 自启动flymake语法检测
-(add-hook 'find-file-hooks 'flymake-find-file-hook)
+;; (add-hook 'find-file-hooks 'flymake-find-file-hook)
 
 ;;
 ;;更改spacemacs内置设置

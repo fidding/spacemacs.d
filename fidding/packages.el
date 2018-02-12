@@ -65,10 +65,9 @@ Each entry is either:
 ;;添加包依赖
 (setq fidding-packages
       '(
-        ;;dracula-theme
-        dracula-theme
-        ;;monokai主题
-        ;;monokai-theme
+        ;; dracula-theme
+        monokai-theme
+        ;; atom-one-dark-theme
         ;;自动补全
         company
         ;;彩虹猫
@@ -82,7 +81,7 @@ Each entry is either:
         ;;(php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
         php-mode
         flymake-php
-        phpcbf
+        ;;phpcbf
         ac-php
         ;;选中词匹配高亮
         idle-highlight-mode
@@ -96,6 +95,11 @@ Each entry is either:
         (livedown :location (recipe
                              :fetcher github
                              :repo "shime/emacs-livedown"))
+
+        ;; python
+        elpy
+        ;; python函数跳转
+        jedi-core
         )
       )
 
@@ -108,20 +112,28 @@ Each entry is either:
 ;; :disabled t 禁用
 
 ;;monokai主题
-;; (defun fidding/init-monokai-theme ()
-;;   (use-package monokai-theme
+(defun fidding/init-monokai-theme ()
+   (use-package monokai-theme
+    :init
+    :config
+    (load-theme 'monokai t)
+    ))
+
+;;atom io主题
+;; (defun fidding/init-atom-one-dark-theme ()
+;;   (use-package atom-one-dark-theme
 ;;     :init
 ;;     :config
-;;     (load-theme 'monokai t)
+;;     (load-theme 'atom-one-dark t)
 ;;     ))
 
 ;; dracula-theme主题
-(defun fidding/init-dracula-theme ()
-  (use-package dracula-theme
-    :init
-    :config
-    (load-theme 'dracula t)
-    ))
+;; (defun fidding/init-dracula-theme ()
+;;   (use-package dracula-theme
+;;     :init
+;;     :config
+;;     (load-theme 'dracula t)
+;;     ))
 
 ;;彩虹猫
 (defun fidding/init-nyan-mode ()
@@ -145,14 +157,14 @@ Each entry is either:
                (auto-complete-mode t)
                (require 'ac-php)
                (setq ac-sources  '(ac-source-php ) )
-               (yas-global-mode 1)
+               ;; (yas-global-mode 1)
 
                (ac-php-core-eldoc-setup ) ;; enable eldoc
                (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
                (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back)    ;go back
                ))
     ))
-    
+
 ;;web-mode
 (defun fidding/init-web-mode ()
   (use-package web-mode
@@ -203,24 +215,24 @@ Each entry is either:
     :defer t
     :config
     (add-hook 'php-mode-hook 'flymake-php-load)))
- 
+
 ;;phpcbf规范检测
-(defun fidding/init-phpcbf ()
-  (use-package phpcbf
-    :init
-    :config
-    (custom-set-variables
-    '(phpcbf-executable "/usr/local/bin/phpcbf")
-    '(phpcbf-standard "PSR2"))
-    (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
-    ))  
+;; (defun fidding/init-phpcbf ()
+;;   (use-package phpcbf
+;;     :init
+;;     :config
+;;     (custom-set-variables
+;;     '(phpcbf-executable "/usr/local/bin/phpcbf")
+;;     '(phpcbf-standard "PSR2"))
+;;     (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
+;;     ))
 
 ;;ac-php语法提示
 (defun fidding/init-ac-php ()
   (use-package ac-php
     :init
     :config
-    ))  
+    ))
 
 
 
@@ -248,6 +260,26 @@ Each entry is either:
      '(livedown:open t)        ; 启动预览自动打开窗口automatically open the browser window
      '(livedown:port 1337))    ; 端口 port for livedown server
     (require 'livedown)
+    )
+  )
+
+;; emacs lisp python
+(defun fidding/init-elpy ()
+  (use-package elpy
+    :config
+    (package-initialize)
+    (elpy-enable)
+    )
+  )
+
+;; python函数跳转
+;; C-c . 跳转定义
+;; C-c ? 跳转函数说明
+(defun fidding/init-jedi-core ()
+  (use-package jedi-core
+    :config
+    (add-hook 'python-mode-hook 'jedi:setup)
+    (setq jedi:complete-on-dot t) ; optional
     )
   )
 
