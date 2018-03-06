@@ -61,6 +61,9 @@ dotspacemacs-configuration-layers '(fidding）
 
 13. python
 
+14. js2-mode
+
+
 
 **基本配置**
 

@@ -77,6 +77,8 @@ Each entry is either:
          :files ("nyan-mode.el" "img" "mus"))
         ;;web模式
         web-mode
+        ;;js2模式
+        js2-mode
         ;;php开发
         ;;(php-extras :location (recipe :fetcher github :repo "arnested/php-extras"))
         php-mode
@@ -100,6 +102,8 @@ Each entry is either:
         elpy
         ;; python函数跳转
         jedi-core
+        ;; 图标
+        all-the-icons
         )
       )
 
@@ -110,6 +114,16 @@ Each entry is either:
 ;; :bind 自定义绑定包快捷键，例如:bind ("C-." . jumpweb-mode))
 ;; :defer t 自动推迟加载，在空闲时间加载
 ;; :disabled t 禁用
+
+;;图标
+(defun fidding/init-all-the-icons ()
+  (use-package all-the-icons
+    :init
+    :config
+    (setq inhibit-compacting-font-caches t)
+    ;; neotree
+    (setq neo-theme 'icons)
+    ))
 
 ;;monokai主题
 (defun fidding/init-monokai-theme ()
@@ -165,6 +179,13 @@ Each entry is either:
                ))
     ))
 
+;;js2-mode
+(defun fidding/init-js2-mode ()
+  (use-package js2-mode
+    :config
+    (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+    ))
+
 ;;web-mode
 (defun fidding/init-web-mode ()
   (use-package web-mode
@@ -173,9 +194,9 @@ Each entry is either:
     (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
-    (setq web-mode-content-types-alist
-          '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
+    ;; (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+    ;; (setq web-mode-content-types-alist
+    ;;       '(("jsx"  . "/.*/react/.*\\.js[x]?\\'")))
     (setq web-mode-markup-indent-offset 4)
     (setq web-mode-css-indent-offset 4)
     (setq web-mode-code-indent-offset 4)
