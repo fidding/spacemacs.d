@@ -35,7 +35,7 @@ dotspacemacs-configuration-layers '(fidding）
 ## 都有什么
 **插件**
 
-1. monokai-theme主题
+1. material-theme主题
 
 2. cpmpany自动补全
 
@@ -59,10 +59,11 @@ dotspacemacs-configuration-layers '(fidding）
 
 12. vue
 
-13. python
+13. python环境elpy-mode
 
 14. js2-mode
 
+15. all-the-icons和spaceline-all-the-icons
 
 
 **基本配置**
@@ -76,6 +77,17 @@ dotspacemacs-configuration-layers '(fidding）
 4. 保存buffer时移除多余空格
 
 5. web, php, python环境开发
+
+**python环境开发要求**
+1. elpy-mode使用需要安装额外包
+``` shell
+// mac系统
+pip install rope
+pip install jedi
+pip install flake8
+pip install autopep8
+pip install yapf
+```
 
 ***
 **将持续更新，欢迎star&fork!!**

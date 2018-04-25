@@ -65,9 +65,11 @@ Each entry is either:
 ;;添加包依赖
 (setq fidding-packages
       '(
+        ;; 主题
         ;; dracula-theme
-        monokai-theme
+        ;; monokai-theme
         ;; atom-one-dark-theme
+        material-theme
         ;;自动补全
         company
         ;;彩虹猫
@@ -101,9 +103,10 @@ Each entry is either:
         ;; python
         elpy
         ;; python函数跳转
-        jedi-core
+        ;; jedi-core
         ;; 图标
         all-the-icons
+        spaceline-all-the-icons
         )
       )
 
@@ -124,14 +127,34 @@ Each entry is either:
     ;; neotree
     (setq neo-theme 'icons)
     ))
+(defun fidding/init-spaceline-all-the-icons ()
+  (use-package spaceline-all-the-icons
+    :after spaceline
+    :config
+    (spaceline-all-the-icons-theme)
+    (setq spaceline-all-the-icons-separator-type 'slant)
+    ;; (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
+    ;; (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
+    ;; (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
+    ;; (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
+    (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line
+    ))
 
-;;monokai主题
-(defun fidding/init-monokai-theme ()
-   (use-package monokai-theme
+;;material-theme主题
+(defun fidding/init-material-theme ()
+  (use-package material-theme
     :init
     :config
-    (load-theme 'monokai t)
+    (load-theme 'material t)
     ))
+
+;;monokai主题
+;; (defun fidding/init-monokai-theme ()
+;;    (use-package monokai-theme
+;;     :init
+;;     :config
+;;     (load-theme 'monokai t)
+;;     ))
 
 ;;atom io主题
 ;; (defun fidding/init-atom-one-dark-theme ()
@@ -296,12 +319,12 @@ Each entry is either:
 ;; python函数跳转
 ;; C-c . 跳转定义
 ;; C-c ? 跳转函数说明
-(defun fidding/init-jedi-core ()
-  (use-package jedi-core
-    :config
-    (add-hook 'python-mode-hook 'jedi:setup)
-    (setq jedi:complete-on-dot t) ; optional
-    )
-  )
+;; (defun fidding/init-jedi-core ()
+;;   (use-package jedi-core
+;;     :config
+;;     (add-hook 'python-mode-hook 'jedi:setup)
+;;     (setq jedi:complete-on-dot t) ; optional
+;;     )
+;;   )
 
 ;;; packages.el ends here

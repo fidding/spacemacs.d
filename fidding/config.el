@@ -50,15 +50,18 @@
         (sequence "TODO(t!)" "|" "DONE(d!)" "ABORT(a@/!)" "NOTE(n!)" "IDEA(i!)")
         ))
 
-;;底部分割线锯齿平滑
-(setq ns-use-srgb-colorspace nil)
-
 ;; 自启动flymake语法检测
 ;; (add-hook 'find-file-hooks 'flymake-find-file-hook)
 
-;;
-;;更改spacemacs内置设置
-;;
+;; ===================
+;; 更改spacemacs内置设置
+;; ===================
 
 ;;关闭layer安装提示
 (setq dotspacemacs-enable-lazy-installation 'nil)
+;;设置行号
+(setq-default dotspacemacs-line-numbers t)
+;;设置spaceline样式
+(setq-default dotspacemacs-mode-line-theme '(spacemacs :separator arrow :separator-scale 1))
+;;底部分割线锯齿平滑
+(setq ns-use-srgb-colorspace nil)
