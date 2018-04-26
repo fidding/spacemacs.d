@@ -62,6 +62,7 @@
 ;;设置行号
 (setq-default dotspacemacs-line-numbers t)
 ;;设置spaceline样式
-(setq-default dotspacemacs-mode-line-theme '(spacemacs :separator arrow :separator-scale 1))
+(setq-default dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.0))
+(setq spaceline-responsive nil)
 ;;底部分割线锯齿平滑
 (setq ns-use-srgb-colorspace nil)
