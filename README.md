@@ -1,6 +1,7 @@
 
 # fidding emacs配置
 个人的spacemacs layer配置 , 开发堆栈(php/python+html+css+js)
+<p align="center"><img src="/images/picture.png" alt="fidding"/></p>
 
 ## 安装
 
