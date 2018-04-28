@@ -67,7 +67,7 @@ dotspacemacs-configuration-layers '(fidding）
 15. all-the-icons和spaceline-all-the-icons
 
 
-**基本配置**
+**基本功能**
 
 1. 自定义窗口标题
 
@@ -79,16 +79,21 @@ dotspacemacs-configuration-layers '(fidding）
 
 5. web, php, python环境开发
 
-**python环境开发要求**
-1. elpy-mode使用需要安装额外包
-``` shell
-// mac系统
-pip install rope
-pip install jedi
-pip install flake8
-pip install autopep8
-pip install yapf
-```
+**环境配置**
+
+1. emacs指令安装```all-the-icons```字体[emacs]
+   ```
+   M-x all-the-icons-install-fonts
+   ```
+
+2. python开发:elpy-mode使用需要安装额外包[shell]
+   ``` shell
+    pip install rope
+    pip install jedi
+    pip install flake8
+    pip install autopep8
+    pip install yapf
+    ```
 
 ***
 **将持续更新，欢迎star&fork!!**
