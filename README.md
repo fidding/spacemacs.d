@@ -66,6 +66,8 @@ dotspacemacs-configuration-layers '(fidding）
 
 15. all-the-icons和spaceline-all-the-icons
 
+16. yasnippet
+
 
 **基本功能**
 
@@ -87,12 +89,8 @@ dotspacemacs-configuration-layers '(fidding）
    ```
 
 2. python开发:elpy-mode使用需要安装额外包[shell]
-   ``` shell
-    pip install rope
-    pip install jedi
-    pip install flake8
-    pip install autopep8
-    pip install yapf
+    ``` shell
+    pip install rope jedi flake8 autopep8 yapf
     ```
 
 ***

@@ -68,8 +68,8 @@ Each entry is either:
         ;; 主题
         ;; dracula-theme
         ;; monokai-theme
-        ;; atom-one-dark-theme
-        material-theme
+        atom-one-dark-theme
+        ;; material-theme
         ;;自动补全
         company
         ;;彩虹猫
@@ -77,6 +77,8 @@ Each entry is either:
          :fetcher github
          :repo "TeMPOraL/nyan-mode"
          :files ("nyan-mode.el" "img" "mus"))
+        ;;yasnippet
+        yasnippet
         ;;web模式
         web-mode
         ;;js2模式
@@ -141,12 +143,12 @@ Each entry is either:
     ))
 
 ;;material-theme主题
-(defun fidding/init-material-theme ()
-  (use-package material-theme
-    :init
-    :config
-    (load-theme 'material t)
-    ))
+;; (defun fidding/init-material-theme ()
+;;   (use-package material-theme
+;;     :init
+;;     :config
+;;     (load-theme 'material t)
+;;     ))
 
 ;;monokai主题
 ;; (defun fidding/init-monokai-theme ()
@@ -157,12 +159,12 @@ Each entry is either:
 ;;     ))
 
 ;;atom io主题
-;; (defun fidding/init-atom-one-dark-theme ()
-;;   (use-package atom-one-dark-theme
-;;     :init
-;;     :config
-;;     (load-theme 'atom-one-dark t)
-;;     ))
+(defun fidding/init-atom-one-dark-theme ()
+  (use-package atom-one-dark-theme
+    :init
+    :config
+    (load-theme 'atom-one-dark t)
+    ))
 
 ;; dracula-theme主题
 ;; (defun fidding/init-dracula-theme ()
@@ -242,6 +244,13 @@ Each entry is either:
     (add-hook 'php-mode-hook 'my-coding-hook)
     ))
 
+;;yasnippet
+(defun fidding/init-yasnippet ()
+  (use-package yasnippet
+    :config
+    (yas-global-mode 1)
+    ))
+
 ;;php-mode
 (defun fidding/init-php-mode ()
   (use-package php-mode
@@ -313,6 +322,10 @@ Each entry is either:
     :config
     (package-initialize)
     (elpy-enable)
+    (add-hook 'elpy-mode-hook
+              (lambda ()
+                (set (make-local-variable 'company-backends)
+                     '((company-dabbrev-code company-yasnippet elpy-company-backend)))))
     )
   )
 

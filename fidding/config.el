@@ -66,4 +66,4 @@
 (setq spaceline-responsive nil)
 ;;底部分割线锯齿平滑
 (setq ns-use-srgb-colorspace nil)
-(setq powerline-image-apple-rgb nil)
+(setq powerline-image-apple-rgb t)
