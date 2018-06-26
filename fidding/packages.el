@@ -105,7 +105,9 @@ Each entry is either:
         ;; python
         elpy
         ;; python函数跳转
-        ;; jedi-core
+		jedi-core
+		;; python函数补全
+        company-jedi
         ;; 图标
         all-the-icons
         spaceline-all-the-icons
@@ -192,16 +194,21 @@ Each entry is either:
     (add-hook 'after-init-hook 'global-company-mode);;激活自动补全
     ;;配合ac-php
     (add-hook 'php-mode-hook
-            '(lambda ()
-               (auto-complete-mode t)
-               (require 'ac-php)
-               (setq ac-sources  '(ac-source-php ) )
-               ;; (yas-global-mode 1)
+              '(lambda ()
+                 (auto-complete-mode t)
+                 (require 'ac-php)
+                 (setq ac-sources  '(ac-source-php ) )
+                 ;; (yas-global-mode 1)
 
-               (ac-php-core-eldoc-setup ) ;; enable eldoc
-               (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
-               (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back)    ;go back
-               ))
+                 (ac-php-core-eldoc-setup ) ;; enable eldoc
+                 (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
+                 (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back)    ;go back
+                 ))
+    ;;python-model
+	;;自定义python-mode-hook(已交由elpy-mode处理)
+	;;(defun my/python-mode-hook ()
+    ;;(add-to-list 'company-backends '(company-jedi company-dabbrev-code company-yasnippet elpy-company-backend)))
+    ;;(add-hook 'python-mode-hook 'my/python-mode-hook)
     ))
 
 ;;js2-mode
@@ -322,22 +329,30 @@ Each entry is either:
     :config
     (package-initialize)
     (elpy-enable)
+	;;设置company-backends补全
     (add-hook 'elpy-mode-hook
               (lambda ()
                 (set (make-local-variable 'company-backends)
-                     '((company-dabbrev-code company-yasnippet elpy-company-backend)))))
+                     '((company-jedi company-dabbrev-code company-yasnippet elpy-company-backend)))))
+    )
+  )
+
+;; python函数补全
+(defun fidding/init-company-jedi ()
+  (use-package company-jedi
+    :config
     )
   )
 
 ;; python函数跳转
 ;; C-c . 跳转定义
 ;; C-c ? 跳转函数说明
-;; (defun fidding/init-jedi-core ()
-;;   (use-package jedi-core
-;;     :config
-;;     (add-hook 'python-mode-hook 'jedi:setup)
-;;     (setq jedi:complete-on-dot t) ; optional
-;;     )
-;;   )
+(defun fidding/init-jedi-core ()
+  (use-package jedi-core
+    :config
+    (add-hook 'python-mode-hook 'jedi:setup)
+    (setq jedi:complete-on-dot t) ; optional
+    )
+  )
 
 ;;; packages.el ends here
