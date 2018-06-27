@@ -333,7 +333,8 @@ Each entry is either:
     (add-hook 'elpy-mode-hook
               (lambda ()
                 (set (make-local-variable 'company-backends)
-                     '((company-jedi company-dabbrev-code company-files company-yasnippet elpy-company-backend)))))
+                     ;;:separate会防止不同backends的candidates被合并到一起
+                     '((:separate company-jedi company-yasnippet elpy-company-backend company-dabbrev-code company-files)))))
     )
   )
 
