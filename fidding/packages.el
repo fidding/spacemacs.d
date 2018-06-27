@@ -333,7 +333,7 @@ Each entry is either:
     (add-hook 'elpy-mode-hook
               (lambda ()
                 (set (make-local-variable 'company-backends)
-                     '((company-jedi company-dabbrev-code company-yasnippet elpy-company-backend)))))
+                     '((company-jedi company-dabbrev-code company-files company-yasnippet elpy-company-backend)))))
     )
   )
 
